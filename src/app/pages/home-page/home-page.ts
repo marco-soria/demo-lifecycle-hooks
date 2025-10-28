@@ -1,13 +1,12 @@
 import {
   afterNextRender,
-  afterRender,
   Component,
   effect,
   OnChanges,
   OnInit,
   signal,
 } from '@angular/core';
-import { TitleComponent } from '../../components/title/title.component';
+import { TitleComponent } from '../../components/title/title';
 
 const log = (...messages: string[]) => {
   console.log(
@@ -19,7 +18,7 @@ const log = (...messages: string[]) => {
 @Component({
   selector: 'app-home-page',
   imports: [TitleComponent],
-  templateUrl: './home-page.component.html',
+  templateUrl: './home-page.html',
 })
 export class HomePageComponent implements OnInit, OnChanges {
   traditionalProperty = 'Fernando';
@@ -103,10 +102,11 @@ export class HomePageComponent implements OnInit, OnChanges {
     );
   });
 
-  afterRender = afterRender(() => {
-    log(
-      'afterRender',
-      'Runs every time all components have been rendered to the DOM.'
-    );
-  });
+  // afterRender is not available in Angular 20.3.6
+  // afterRender = afterRender(() => {
+  //   log(
+  //     'afterRender',
+  //     'Runs every time all components have been rendered to the DOM.'
+  //   );
+  // });
 }

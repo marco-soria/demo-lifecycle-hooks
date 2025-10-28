@@ -3,7 +3,7 @@ import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
 @Component({
   selector: 'app-title',
   imports: [],
-  templateUrl: './title.component.html',
+  templateUrl: './title.html',
 })
 export class TitleComponent implements OnChanges {
   title = input.required<string>();
